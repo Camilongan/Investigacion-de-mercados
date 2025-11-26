@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico Estratégico Moda Nacional S.A.S.</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --light-bg: #f8f9fa;
+            --dark-text: #343a40;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--dark-text);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.2em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: var(--dark-text);
+            margin-top: 25px;
+            font-size: 1.4em;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .chart-box {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .recommendation-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .recommendation-list li {
+            border-left: 5px solid var(--success-color);
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #e9f7ec;
+            border-radius: 4px;
+        }
+
+        .recommendation-list li strong {
+            color: var(--success-color);
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .diagnosis-box {
+            background-color: var(--danger-color);
+            color: white;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Diagnóstico Estratégico y Situacional</h1>
+        <p>Moda Nacional S.A.S. - Informe de Investigación de Mercados (150 encuestas realizadas)</p>
+    </header>
+
+    <div class="container">
+        <section id="diagnostico">
+            <h2>1. Diagnóstico Estratégico y Situacional</h2>
+            <div class="diagnosis-box">
+                <h3>CAUSA RAÍZ: Desconexión Dual</h3>
+                <p>La caída del 18% en ventas se debe a una Desconexión de Calidad Técnica (el producto no dura) y una Brecha de Visibilidad Digital (la marca no está donde se inspira el consumidor joven).</p>
+            </div>
+            <p>El problema no es meramente logístico, sino de valor percibido. Los distribuidores reducen pedidos porque el consumidor final no encuentra el estilo deseado y castiga la calidad percibida de las prendas nacionales.</p>
+        </section>
+
+        <section id="segmentacion">
+            <h2>2. Segmentación y Hábitos (Objetivo Específico 1 Cumplido)</h2>
+            <p>Se logró la caracterización del perfil, hábitos de consumo digital y preferencias de estilo.</p>
+
+            <div class="grid-container">
+                <div class="chart-box">
+                    <h3>Perfil Demográfico (Rango de Edad)</h3>
+                    <canvas id="chartEdad"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h3>Plataformas de Inspiración (Múltiple Selección)</h3>
+                    <canvas id="chartInspiracion"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h3>Estilos de Moda Preferidos</h3>
+                    <canvas id="chartEstilos"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h3>Distribución Regional de la Muestra</h3>
+                    <canvas id="chartRegion"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="brechas">
+            <h2>3. Brechas de Producto y Estrategia Digital (Objetivos 2 y 3 Cumplidos)</h2>
+
+            <div class="grid-container">
+                <div class="chart-box">
+                    <h3>Calidad Nacional vs. Importada (Valor Percibido)</h3>
+                    <canvas id="chartCalidad"></canvas>
+                    <p style="margin-top: 10px; font-size: 0.9em; color: var(--danger-color);">Conclusión: Más del 50% percibe la calidad nacional como inferior.</p>
+                </div>
+                <div class="chart-box">
+                    <h3>Problemas de Durabilidad más Frecuentes</h3>
+                    <canvas id="chartProblemas"></canvas>
+                    <p style="margin-top: 10px; font-size: 0.9em; color: var(--danger-color);">Puntos de Dolor: Fallas técnicas (costuras, encogimiento) castigan la reputación de la marca.</p>
+                </div>
+                <div class="chart-box" style="grid-column: span 2;">
+                    <h3>Influencia de la Publicidad Digital</h3>
+                    <canvas id="chartInfluencia"></canvas>
+                    <p style="margin-top: 10px; font-size: 0.9em; color: var(--danger-color);">Impacto: El 70% de los usuarios puntúa la publicidad digital con 4 o 5, confirmando que la competencia gana por su presencia en redes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="recomendaciones">
+            <h2>4. Hoja de Ruta Estratégica (Recomendaciones)</h2>
+            <p>Para recuperar el mercado y revertir la tendencia de ventas, se proponen las siguientes acciones basadas en datos:</p>
+            
+            <ul class="recommendation-list">
+                <li>
+                    <strong>Recomendación 1: Inversión Urgente en Calidad Técnica</strong>
+                    <p>Implementar un Protocolo de Pre-Lavado y Remate de Costuras más estricto. (Justificado por el alto porcentaje de quejas por encogimiento y costuras descosidas).</p>
+                </li>
+                <li>
+                    <strong>Recomendación 2: Reorientación de Portafolio (Línea Cápsula Urbana)</strong>
+                    <p>Crear una línea "Urbana Nacional" enfocada en siluetas *Oversize* y *Athleisure*. (Justificado por la dominancia del Streetwear/Urbano en los estilos preferidos de la población joven).</p>
+                </li>
+                <li>
+                    <strong>Recomendación 3: Soporte Digital B2B2C (Contenido para Distribuidores)</strong>
+                    <p>Moda Nacional S.A.S. debe generar activos digitales (Reels/TikToks) listos para usar y entregarlos a sus distribuidores mayoristas. (Justificado por la alta influencia de la publicidad digital en plataformas como TikTok e Instagram).</p>
+                </li>
+            </ul>
+        </section>
+        
+        <section id="conclusion">
+            <h2>5. Conclusión General y Validación de Objetivos</h2>
+            <p><strong>El Objetivo General ha sido logrado:</strong> Se identificó que la causa raíz es la falta de alineación entre la Calidad Percibida, el Diseño Actual y la Estrategia Digital de la empresa, lo que ha permitido a la competencia extranjera dominar el mercado de inspiración.</p>
+            <p>La implementación de las recomendaciones no solo busca aumentar las ventas, sino también redefinir el valor de la moda nacional ante el consumidor final, lo que se traducirá en una mayor rotación y, por ende, en un incremento de pedidos de los distribuidores mayoristas.</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p style="text-align: center; padding: 20px; color: var(--secondary-color);">Informe generado por Camilo Quintero, Andrés Giraldo y Mateo Cano basado en los datos obtenidos en la encuesta.</p>
+    </footer>
+
+    <script>
+        // --- DATA HARDCODEADA PARA GRÁFICOS (Basada en el análisis del dataset) ---
+        // N=150
+        const dataAnalisis = {
+            // Segmentación (Obj 1)
+            edad: {
+                labels: ['18-24 años', '25-34 años', '35-44 años', '45+ años'],
+                data: [60, 50, 25, 15], // Frecuencias
+                backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545']
+            },
+            inspiracion: {
+                labels: ['TikTok', 'Instagram', 'Pinterest', 'Sitios Web Marcas'],
+                data: [75, 60, 40, 30], // Múltiple selección (frecuencias)
+                backgroundColor: ['#dc3545', '#e83e8c', '#6f42c1', '#20c997']
+            },
+            estilos: {
+                labels: ['Streetwear/Urbano', 'Athleisure', 'Casual/Cómodo', 'Formal/Ejecutivo'],
+                data: [65, 55, 45, 20],
+                backgroundColor: ['#007bff', '#17a2b8', '#28a745', '#6c757d']
+            },
+            region: {
+                labels: ['Antioquia', 'Valle del Cauca', 'Costa Atlántica'],
+                data: [50, 50, 50],
+                backgroundColor: ['#17a2b8', '#ffc107', '#007bff']
+            },
+            // Brechas y Competencia (Obj 2 y 3)
+            calidad: {
+                labels: ['Peor/Mucho Peor', 'Similar a la Importada', 'Mejor/Mucho Mejor'],
+                data: [83, 45, 22],
+                backgroundColor: ['#dc3545', '#ffc107', '#28a745']
+            },
+            problemas: {
+                labels: ['Costuras descosen', 'Encogimiento al lavar', 'La tela hace bolitas', 'Colores destiñen'],
+                data: [50, 45, 30, 25],
+                backgroundColor: ['#dc3545', '#dc3545', '#ffc107', '#ffc107']
+            },
+            influencia: {
+                labels: ['Muy Alta/Alta (4 ó 5)', 'Media/Baja (1 a 3)'],
+                data: [105, 45], // 70% vs 30%
+                backgroundColor: ['#007bff', '#6c757d']
+            }
+        };
+
+        // --- FUNCIÓN PARA INICIALIZAR GRÁFICOS ---
+        function initCharts() {
+            // Chart.js Configuration Base
+            const barOptions = {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Frecuencia (N)' }
+                    },
+                    x: {
+                        ticks: { autoSkip: false }
+                    }
+                },
+                plugins: { legend: { display: false } }
+            };
+
+            const pieOptions = {
+                responsive: true
+            };
+
+            // 1. Rango de Edad (Barras)
+            new Chart(document.getElementById('chartEdad'), {
+                type: 'bar',
+                data: {
+                    labels: dataAnalisis.edad.labels,
+                    datasets: [{
+                        data: dataAnalisis.edad.data,
+                        backgroundColor: dataAnalisis.edad.backgroundColor
+                    }]
+                },
+                options: barOptions
+            });
+
+            // 2. Plataformas de Inspiración (Barras)
+            new Chart(document.getElementById('chartInspiracion'), {
+                type: 'bar',
+                data: {
+                    labels: dataAnalisis.inspiracion.labels,
+                    datasets: [{
+                        data: dataAnalisis.inspiracion.data,
+                        backgroundColor: dataAnalisis.inspiracion.backgroundColor
+                    }]
+                },
+                options: barOptions
+            });
+
+            // 3. Estilos Preferidos (Barras)
+            new Chart(document.getElementById('chartEstilos'), {
+                type: 'bar',
+                data: {
+                    labels: dataAnalisis.estilos.labels,
+                    datasets: [{
+                        data: dataAnalisis.estilos.data,
+                        backgroundColor: dataAnalisis.estilos.backgroundColor
+                    }]
+                },
+                options: barOptions
+            });
+
+            // 4. Distribución Regional (Pie)
+            new Chart(document.getElementById('chartRegion'), {
+                type: 'pie',
+                data: {
+                    labels: dataAnalisis.region.labels,
+                    datasets: [{
+                        data: dataAnalisis.region.data,
+                        backgroundColor: dataAnalisis.region.backgroundColor
+                    }]
+                },
+                options: pieOptions
+            });
+
+            // 5. Calidad Nacional vs. Importada (Pie)
+            new Chart(document.getElementById('chartCalidad'), {
+                type: 'doughnut',
+                data: {
+                    labels: dataAnalisis.calidad.labels,
+                    datasets: [{
+                        data: dataAnalisis.calidad.data,
+                        backgroundColor: dataAnalisis.calidad.backgroundColor
+                    }]
+                },
+                options: pieOptions
+            });
+
+            // 6. Problemas de Durabilidad (Barras)
+            new Chart(document.getElementById('chartProblemas'), {
+                type: 'bar',
+                data: {
+                    labels: dataAnalisis.problemas.labels,
+                    datasets: [{
+                        data: dataAnalisis.problemas.data,
+                        backgroundColor: dataAnalisis.problemas.backgroundColor
+                    }]
+                },
+                options: barOptions
+            });
+
+            // 7. Influencia Publicidad Digital (Pie)
+            new Chart(document.getElementById('chartInfluencia'), {
+                type: 'pie',
+                data: {
+                    labels: dataAnalisis.influencia.labels,
+                    datasets: [{
+                        data: dataAnalisis.influencia.data,
+                        backgroundColor: ['#007bff', '#6c757d']
+                    }]
+                },
+                options: pieOptions
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initCharts);
+    </script>
+</body>
+</html>
